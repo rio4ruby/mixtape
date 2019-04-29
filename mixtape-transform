@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift('lib')
+require 'mixtape/app'
+
+usage_str = "Usage: #{$0} <input-file> <changes-file> <output-file>"
+unless ARGV.size == 3
+  puts usage_str
+  exit -1
+end
+
+unless Mixtape::App.run(*ARGV)
+  puts(usage_str)
+  exit -2
+end
